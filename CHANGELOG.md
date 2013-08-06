@@ -5,3 +5,4 @@
 - removed LESS files from assets directory
 - cleaned out documentation
 - added inc folder in js for main includes
+- addedd sassaparrilla and susy
