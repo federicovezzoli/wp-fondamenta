@@ -1,4 +1,4 @@
-# [wp-fondamenta theme]
+# Fondamenta theme
 
 Fondamenta is a starting WordPress theme made for developers that’s based on
 [HTML5 Boilerplate](http://html5boilerplate.com/) with the addedd goodness of Compass, Sassaparrilla and Susy Grids.
