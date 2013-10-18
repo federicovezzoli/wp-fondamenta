@@ -25,18 +25,6 @@ Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
 ## Features
 
 * HTML5 Boilerplate’s markup
-
-
-### Build Script
-
-The [grunt branch](https://github.com/retlehs/roots/tree/grunt) contains a build
-script powered by grunt. More information can be found at [Integrating grunt.js with Roots](http://benword.com/integrating-grunt-js-with-roots/).
-
-* Easily compile LESS files
-* Minification and concatenation without plugins
-* Fewer requests made to the server (one CSS file, one main JS file besides
-Modernizr and jQuery)
-* Ensures valid JavaScript
-* Others working on your project are able to use the same build script and have
-a unified development process
-* Code is optimized for production use
+* TGM library for required plugins
+* Compass for styling
+* Susy Grids for responsive grids
