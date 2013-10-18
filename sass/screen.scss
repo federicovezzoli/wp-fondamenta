@@ -99,17 +99,7 @@ a {
 	width: 95%;
 }
 
-/* Example styles - you'll most likey want to remove*/
-header {
-	@include padding-leader(4);
-	@include padding-trailer(2);
-	@include trailer(6);
-	background: #333;
-	h1 { color: #fff; }
-}
-
 section 				{ @extend .clearfix; }
-h1 						{ font-weight: 600; }
 ol 						{ @include ordered-inside }
 ul 						{ @include unordered-inside }
 
@@ -130,29 +120,11 @@ ul 						{ @include unordered-inside }
 	}
 }
 
+//Media Query for tablets
+@import "libs/mq_tablet";
 
-// Eg for 800px
-@media screen and (min-width: em-font(800px)) {
-	.container {
-		min-width: em-font(780px);
-	}
-}
-
-// Eg for 1240px
-@media screen and (min-width: em-font(1240px)) {
-	.container {
-		max-width: em-font(1080px);
-	}
-}
-
-// Print styles
-@media print {
-	body {
-		// Smaller type for printing. Save a tree
-		font-size: percentage(10 / 16);
-		@include adjust-leading-to(2);
-	}
-}
+//Media Query fot desktops
+@import "libs/mq_desktop";
 
 
 // IOS specifics

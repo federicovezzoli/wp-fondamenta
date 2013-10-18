@@ -284,27 +284,12 @@ input[type="checkbox"]:focus {
   margin: 0 auto;
   width: 95%; }
 
-/* Example styles - you'll most likey want to remove*/
 /* line 103, ../../sass/screen.scss */
-header {
-  padding-top: 2em;
-  padding-bottom: 1em;
-  margin-bottom: 3em;
-  background: #333; }
-  /* line 108, ../../sass/screen.scss */
-  header h1 {
-    color: #fff; }
-
-/* line 112, ../../sass/screen.scss */
-h1 {
-  font-weight: 600; }
-
-/* line 113, ../../sass/screen.scss */
 ol {
   list-style-position: inside;
   list-style-type: decimal; }
 
-/* line 114, ../../sass/screen.scss */
+/* line 104, ../../sass/screen.scss */
 ul {
   list-style-position: inside;
   list-style-type: disc; }
@@ -312,55 +297,50 @@ ul {
 /* ::Media queries */
 /* ------------------------------------------------------------ */
 @media screen and (min-width: 30em) {
-  /* line 128, ../../sass/screen.scss */
+  /* line 118, ../../sass/screen.scss */
   .container {
     width: 95%; } }
 @media screen and (min-width: 50em) {
-  /* line 136, ../../sass/screen.scss */
+  /* line 5, ../../sass/libs/_mq_tablet.scss */
   .container {
     min-width: 48.75em; } }
 @media screen and (min-width: 77.5em) {
-  /* line 143, ../../sass/screen.scss */
+  /* line 6, ../../sass/libs/_mq_desktop.scss */
   .container {
     max-width: 67.5em; } }
-@media print {
-  /* line 150, ../../sass/screen.scss */
-  body {
-    font-size: 62.5%;
-    line-height: 1em; } }
 @media screen and (max-width: 769px) {
-  /* line 160, ../../sass/screen.scss */
+  /* line 132, ../../sass/screen.scss */
   body {
     -webkit-text-size-adjust: none; } }
 /* ::State styles */
 /* ------------------------------------------------------------ */
-/* line 169, ../../sass/screen.scss */
+/* line 141, ../../sass/screen.scss */
 .is-hidden {
   display: none; }
 
-/* line 173, ../../sass/screen.scss */
+/* line 145, ../../sass/screen.scss */
 .is-shown, .is-block {
   display: block; }
 
-/* line 177, ../../sass/screen.scss */
+/* line 149, ../../sass/screen.scss */
 .is-uppercase {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-/* line 182, ../../sass/screen.scss */
+/* line 154, ../../sass/screen.scss */
 .is-lowercase {
   text-transform: lowercase; }
 
 /* ::Debugs and #grid by Jon Gibbins */
 /* ----------------------------------------------------------- */
-/* line 191, ../../sass/screen.scss */
+/* line 163, ../../sass/screen.scss */
 #grid {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0; }
 
-/* line 198, ../../sass/screen.scss */
+/* line 170, ../../sass/screen.scss */
 #grid div.horiz {
   height: 8px;
   border-bottom: 1px solid #ddd;

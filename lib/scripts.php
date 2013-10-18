@@ -13,8 +13,10 @@
  * 4. /theme/assets/js/main.js    (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
-  wp_enqueue_style('roots_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
+  //screen
+  wp_enqueue_style('roots_app', get_template_directory_uri() . '/assets/css/screen.css', false, 'screen');
+  //print
+  wp_enqueue_style('print', get_template_directory_uri() . '/assets/css/print.css', false,null, 'print');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
