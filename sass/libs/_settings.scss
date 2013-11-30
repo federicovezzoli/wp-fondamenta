@@ -47,7 +47,10 @@ $base-font-size							: 16px; 				// Sets the browser default size. Shouldn't ne
 $base-line-height						: 8px;					// Baseline grid. Set to a sensible, small size.
 $round-to-nearest-half-line	: false;  				// Round the line height to the nearest half line height. Off by default
 
-
+$total-columns  : 4;             // a 12-column grid
+$column-width   : 25%;            // each column is 4em wide
+$gutter-width   : 1%;            // 1em gutters between columns
+$grid-padding   : 0;  // grid-padding equal to gutters
 
 
 // Functions for px to em conversions
