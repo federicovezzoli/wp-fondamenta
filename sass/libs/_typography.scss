@@ -11,6 +11,10 @@
 // You'll often get better results here if you work in numbers the divide into the baseline.
 // IE, if you have a baseline of 6px, multiples or divisions of often provide best results in ems 
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
 h1 { 
 	@include adjust-font-size-to(36px); 
 	margin: 0 0 rhythm(3, 36px) 0;  						// 3 lines below, based on font size

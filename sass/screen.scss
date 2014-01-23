@@ -72,6 +72,23 @@ a {
 	}
 }
 
+.btn {
+
+	
+	&:hover, &:focus, &:active {
+		
+	}
+	
+	&.big {
+		
+		
+		&:hover, &:focus, &:active {
+			
+		}
+	
+	}
+}
+
 // Import base typography into the cascade (if required)
 @import "libs/typography";
 

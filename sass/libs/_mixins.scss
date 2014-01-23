@@ -79,6 +79,29 @@
 	@include transition-timing-function(ease-in-out);
 }
 
+@mixin base_transition {
+	@include transition-property(all); 
+	@include transition-duration(0.5s); 
+	@include transition-timing-function(ease-in-out);
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+}
+
+@mixin background_cover {
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin background_cover_remove {
+	-webkit-background-size: none;
+  -moz-background-size: none;
+  -o-background-size: none;
+  background-size: none;
+}
+
 // HEX to RGB
 // http://codepen.io/sturobson/pen/hdKyv
 // -------------------------------------------------------
