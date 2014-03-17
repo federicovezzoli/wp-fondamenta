@@ -10,7 +10,7 @@
 // Apply the border-box sizing model to all elements
 // and adjust the grid math appropriately.
 @mixin border-box-sizing {
-  $border-box-sizing: true;
+  $border-box-sizing: true !global;
   * { @include box-sizing(border-box); }
 }
 
@@ -27,13 +27,13 @@
   $width: container-outer-width($columns);
 
   @if $style == 'static' {
-    @include if-rem(width, $width);
+    @include rem(width, $width);
   } @else {
     @if $style == 'fluid' {
-      @if unit($width) == '%' { @include if-rem(width, $width); }
+      @if unit($width) == '%' { @include rem(width, $width); }
     } @else {
-      @include if-rem(max-width, $width);
-      @if $legacy-support-for-ie6 {
+      @include rem(max-width, $width);
+      @include for-legacy-browser(ie,"6") {
         @if unit($width) == 'rem' {
           _width: round(convert-length($width, px));
         } @else {
@@ -52,8 +52,8 @@
 ){
   @include pie-clearfix;
   @include set-container-width($columns);
-  @include if-rem(padding-left, $grid-padding);
-  @include if-rem(padding-right, $grid-padding);
+  @include rem(padding-left, $grid-padding);
+  @include rem(padding-right, $grid-padding);
   margin: { left: auto; right: auto; }
 }
 
@@ -64,31 +64,16 @@
 //                        : Two optional lengths (representing min and max-width media-query breakpoints).
 // $media-layout-2 ...-10 : [optional] Same as $media-layout-1
 @mixin container(
-  $media-layout-1   : $total-columns,
-  $media-layout-2   : false,
-  $media-layout-3   : false,
-  $media-layout-4   : false,
-  $media-layout-5   : false,
-  $media-layout-6   : false,
-  $media-layout-7   : false,
-  $media-layout-8   : false,
-  $media-layout-9   : false,
-  $media-layout-10  : false
+  $media-layouts...
 ){
-  $media-layouts    : compact($media-layout-2,$media-layout-3,$media-layout-4,$media-layout-5,$media-layout-6,$media-layout-7,$media-layout-8,$media-layout-9,$media-layout-10);
-
-  @if is-default-layout($media-layout-1) {
-    @include apply-container();
-  } @else {
-    @include at-breakpoint($media-layout-1) {
-      @include apply-container();
-    }
-  }
+  $media-layouts: if(length($media-layouts) > 0, $media-layouts, $total-columns);
 
   @each $ml in $media-layouts {
-    @if $ml {
+    @if is-default-layout($ml) {
+      @include apply-container;
+    } @else {
       @include at-breakpoint($ml) {
-        @include set-container-width;
+        @include apply-container;
       }
     }
   }
@@ -144,7 +129,9 @@
   } @else {
     float: $from;
     margin-#{$to}: gutter($context, $style);
-    @if $legacy-support-for-ie6 { display: inline; }
+    @include for-legacy-browser(ie, "6") {
+      display: inline;
+    }
   }
 }
 
@@ -162,9 +149,11 @@
   float: $omega-float;
   margin-#{$to}: 0;
 
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @include for-legacy-browser(ie, "6", "7") {
     *margin-#{$hack}: - $gutter-width;
-    @if $legacy-support-for-ie6 { display: inline; }
+    @include for-legacy-browser(ie, "6") {
+      display: inline;
+    }
   }
 }
 
@@ -179,11 +168,19 @@
   $from     : $from-direction
 ) {
   $from     : unquote($from);
-  $ie: if($n == "first", true, false);
-  @include adjust-support-for($ie6: $ie, $ie7: $ie, $ie8: $ie) {
-    &:#{format-nth($n,$selector)} { @include omega($from); }
+
+  &:#{format-nth($n,$selector)} {
+    @if $n == "first" {
+      @include omega($from);
+    } @else {
+      @include with-browser-ranges(css-sel3) {
+        @include omega($from);
+      }
+    }
   }
 }
+
+
 
 // ---------------------------------------------------------------------------
 // Resets
@@ -202,9 +199,11 @@
   width: auto;
   margin-#{$to}: auto;
 
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @include for-legacy-browser(ie, "6", "7") {
     *margin-#{$hack}: auto;
-    @if $legacy-support-for-ie6 { display: block; }
+    @include for-legacy-browser(ie, "6") {
+      display: block;
+    }
   }
 }
 
@@ -226,7 +225,7 @@
   float: $from;
   margin-#{$to}: gutter($context, $style);
 
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  @include for-legacy-browser(ie, "6", "7") {
     *margin-#{$hack}: auto;
   }
 }
@@ -246,13 +245,18 @@
   $style    : fix-static-misalignment()
 ) {
   $from     : unquote($from);
-  $ie: if($n == "first", true, false);
-  @include adjust-support-for($ie6: $ie, $ie7: $ie, $ie8: $ie) {
-    &:#{format-nth($n,$selector)} {
+
+  &:#{format-nth($n,$selector)} {
+    @if $n == "first" {
       @include remove-omega($context, $from, $style);
+    } @else {
+      @include with-browser-ranges(css-sel3) {
+        @include remove-omega($context, $from, $style);
+      }
     }
   }
 }
+
 
 // ---------------------------------------------------------------------------
 // Change Settings
@@ -270,17 +274,17 @@
   $default-padding: $grid-padding;
 
   // use the new settings
-  $total-columns: $columns;
-  $column-width: $width;
-  $gutter-width: $gutter;
-  $grid-padding: $padding;
+  $total-columns: $columns !global;
+  $column-width: $width !global;
+  $gutter-width: $gutter !global;
+  $grid-padding: $padding !global;
 
   // apply to contents
   @content;
 
   // re-instate the defaults
-  $total-columns: $default-columns;
-  $column-width: $default-width;
-  $gutter-width: $default-gutter;
-  $grid-padding: $default-padding;
+  $total-columns: $default-columns !global;
+  $column-width: $default-width !global;
+  $gutter-width: $default-gutter !global;
+  $grid-padding: $default-padding !global;
 }

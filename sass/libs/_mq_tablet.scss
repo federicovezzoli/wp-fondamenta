@@ -1,8 +1,0 @@
-@import "settings";
-
-// Eg for 800px
-@media screen and (min-width: em-font(800px)) {
-	.container {
-		min-width: em-font(780px);
-	}
-}

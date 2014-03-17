@@ -190,7 +190,7 @@ $rem-with-px-fallback               : true !default;
     @if $request == 'position' {
       @return $pos;
     } @else {
-      @warn '"#{$request}"" is not a valid value for $request';
+      @warn '"#{$request}" is not a valid value for $request';
     }
   }
 }
@@ -245,7 +245,12 @@ $rem-with-px-fallback               : true !default;
 }
 
 // This name will be deprecated...
-@function absolute-ems($ems, $font-size: $base-font-size){ @return base-ems($ems, $font-size); }
+@function absolute-ems(
+  $ems, 
+  $font-size: $base-font-size
+){ 
+  @return base-ems( $ems, $font-size);
+  }
 
 // Return a length, after any em-values have been sent through absolute-ems().
 //
@@ -335,20 +340,16 @@ $rem-with-px-fallback               : true !default;
 // Return the nearest layout (column-count) above a given breakpoint.
 //
 // $min : The min-width media-query breakpoint above which to establish a new layout.
-@function get-layout (
+@function get-layout( 
   $min
 ) {
-  $columns        : 1;
-  $layout-width   : container-outer-width($columns);
-  $return         : false;
-  $min            : fix-ems($min);
+  $min      : fix-ems($min);
+  $return   : false;
 
-  @if comparable($min, $layout-width) {
-    @while $min >= $layout-width {
-      $columns        : $columns + 1;
-      $layout-width   : container-outer-width($columns);
-    }
-    $return : $columns;
+  @if comparable($min, $column-width) {
+    $return : ceil(($min + $gutter-width) / ($column-width + $gutter-width));
+  } @else {
+    @warn "Can't determine a layout, becuse #{$min} and #{$column-width} are not comparable.";
   }
 
   @return $return;

@@ -1,9 +1,0 @@
-@import "settings";
-
-
-// Eg for 1240px
-@media screen and (min-width: em-font(1240px)) {
-	.container {
-		max-width: em-font(1080px);
-	}
-}
