@@ -2,7 +2,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
 /* line 4, ../../sass/libs/_reset.scss */
-* {
+*, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -75,4 +75,4 @@ textarea {
   /* line 13, ../../sass/print.scss */
   body {
     font-size: 62.5%;
-    line-height: 1em; } }
+    line-height: 0.55em; } }
