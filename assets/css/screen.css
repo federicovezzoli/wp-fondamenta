@@ -287,10 +287,22 @@ input[type="checkbox"]:focus {
 .as-blockquote--typeset, .is-typeset blockquote {
   margin: 0.825em 0; }
 
+/* main container */
+/* line 52, ../../sass/screen.scss */
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 12, ../../sass/susy/output/support/_clearfix.scss */
+  .container::after {
+    content: " ";
+    display: block;
+    clear: both; }
+
 /* ::Print */
 /* ------------------------------------------------------------ */
 @media print {
-  /* line 57, ../../sass/screen.scss */
+  /* line 61, ../../sass/screen.scss */
   body {
     line-height: 0.55em;
     font-size: 62.5%; } }
