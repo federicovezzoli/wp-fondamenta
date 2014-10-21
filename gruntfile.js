@@ -10,7 +10,9 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         'assets/js/*.js',
         'assets/js/vendor/*.js',
-        '!assets/js/scripts.min.js'
+        '!assets/js/scripts.min.js',
+        '!assets/js/plugins.min.js',
+        '!assets/js/head.min.js'
       ]
     },
     compass: {                  // Task
@@ -23,6 +25,7 @@ module.exports = function(grunt) {
 				fontsDir: 'assets/fonts',
 				environment: 'production',
 				outputStyle: 'compressed',
+				force: true
 			}
 		},
 		dev: {                    // Another target
@@ -33,7 +36,7 @@ module.exports = function(grunt) {
 				javascriptsDir: 'assets/js',
 				fontsDir: 'assets/fonts',
 				environment: 'development',
-				outputStyle: 'nested',
+				outputStyle: 'nested'
 			}
 		}
 	},
@@ -46,6 +49,9 @@ module.exports = function(grunt) {
           'assets/js/main.min.js': [
           	'assets/js/inc/*.js',
           	'assets/js/main.js'
+          ],
+          'assets/js/head.min.js': [
+          	'assets/js/head/*.js',
           ]
         }
       },
@@ -60,7 +66,11 @@ module.exports = function(grunt) {
           'assets/js/main.min.js': [
           	'assets/js/inc/*.js',
           	'assets/js/main.js'
+          ],
+          'assets/js/head.min.js': [
+          	'assets/js/head/*.js'
           ]
+
         }
       }
     },
@@ -71,6 +81,7 @@ module.exports = function(grunt) {
 	  },
       js: {
         files: [
+          'assets/js/scritps_head/*.js',
           'assets/js/inc/*.js',
           'assets/js/main.js',
           'assets/js/plugins.js'
@@ -87,7 +98,8 @@ module.exports = function(grunt) {
     clean: {
       dist: [
         'assets/js/plugins.min.js',
-        'assets/js/main.min.js'
+        'assets/js/main.min.js',
+        'assets/js/head.min.js'
       ]
     }
   });

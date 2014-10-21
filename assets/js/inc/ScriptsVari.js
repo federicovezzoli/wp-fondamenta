@@ -5,13 +5,13 @@ ScriptsVari = {
 		$body: $("body"),
 		$html: $("html")
 	},
-	
+
 	//init
 	init: function() {
-		
+
 		//settings
 		sv = this.settings;
-		
+
 		//UI actions
 		this.bindUIActions();
 		//onLoad actions
@@ -20,41 +20,41 @@ ScriptsVari = {
 		this.scrollActions();
 		//resize actions
 		this.resizeActions();
-		
-		//IE message	
+
+		//IE message
 		this.ieMessage();
-		
+
 	},
-	
+
 	onLoadActions: function() {
 		// Loading screen
 		$(window).load(function() {
-		
+
 	    });
 	},
-	
+
 	bindUIActions: function() {
-		
+
 	},
-	
+
 	scrollActions: function() {
 		//terminare animazione quando raggiunto il bottom della pagina
 		$(window).scroll(function() {
-		    
+
 		});
-	
+
 	},
-	
+
 	resizeActions: function() {
 		//azioni al resize
 		$(window).resize(function(){
-			
-			
+
+
 		}).resize();
 	},
-	
+
 	ieMessage: function(){
-		//thanks to Alessio Atzeni for the hint.	
+		//thanks to Alessio Atzeni for the hint.
 		//If browser is IE8 or older we show IE specific page
 		if(sv.$html.hasClass("lt-ie9")){
 			// define the HTML of the page
@@ -66,8 +66,8 @@ ScriptsVari = {
 			page 	 += "<li><a href='http://www.google.com/chrome' target='_blank'>Google Chrome</a></li>";
 			page 	 += "<li><a href='http://www.mozilla.org/en-US/firefox/new/' target='_blank'>Firefox</a></li>";
 			page 	 += "<li><a href='http://www.apple.com/safari/'' target='_blank'>Safari</a></li>";
-			page 	 += "</ul></div>";		
-			
+			page 	 += "</ul></div>";
+
 			// Print the page
 			$('.main').replaceWith(page);
 		}
