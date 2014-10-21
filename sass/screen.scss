@@ -6,6 +6,7 @@
 @import "libs/settings";
 @import "libs/mixins";
 @import "libs/placeholders";
+@import "breakpoint";
 
 // Use SASS globbing to import all _.scss files in the module folder.
 // These should be independent modules that follow the BEM/SMACSS way
@@ -51,6 +52,7 @@ a {
 /* main container */
 .container {
 	@include container;
+	@include clearfix;
 }
 
 
