@@ -61,7 +61,7 @@ module.exports = function(grunt) {
           	'assets/js/inc/*.js',
           	'assets/js/main.js'
           ]
-        }  
+        }
       }
     },
     watch: {
@@ -93,7 +93,6 @@ module.exports = function(grunt) {
   });
 
   // Load tasks
-  grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -108,7 +107,7 @@ module.exports = function(grunt) {
     'uglify:dist',
     'version'
   ]);
-  
+
   grunt.registerTask('dev', [
     'watch',
     'compass'
