@@ -21,3 +21,4 @@ require_once locate_template('/lib/custom.php');          // Custom functions
 
 require_once locate_template('/lib/post-types.php'); 	  //post types
 require_once locate_template('/lib/tgm.php');          	  // Plugin dependencies
+require_once locate_template('/lib/dummytext.php');       // Dummy text
