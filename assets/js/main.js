@@ -5,5 +5,6 @@
 
 jQuery(document).ready(function($)
 {
-		
+	//Scripts Vari Init
+	ScriptsVari.init();
 });
