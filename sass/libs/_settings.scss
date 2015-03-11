@@ -15,7 +15,7 @@
 // a-z viewports. Place where design should change, not always on device widths
 // Hat-tip to @hereinthehive for getting us thinking about naming suggestions
 
-$a-vp								: 300px;	// first viewport 
+$a-vp								: 300px;	// first viewport
 $b-vp								: 420px;	// up one
 $c-vp								: 600px;	// up two
 $d-vp								: 900px;	// up three
@@ -30,13 +30,23 @@ $max-vp 							: $f-vp; 	// max viewport. Syntactically makes for a nicer option
 // This variable is used in the grid to dictate when you make that switch
 $start-columns 						: $b-vp;
 
+// ------------------------------------------------------------
+// :: Susy
+// ------------------------------------------------------------
+
+$susy: (
+  columns: 4,
+  gutters: 1/8,
+  gutter-position: after
+);
+
 
 // ------------------------------------------------------------
 
 
 // Define your main colour palette using whatever naming system you like
 $jack-black							: #333;
-$macy-grey							: #777;	
+$macy-grey							: #777;
 $ron-burgundy 						: #e0006e;
 $al-green 							: #67b2b1;
 $beige-ruth 						: #f5f0e0;
@@ -45,7 +55,7 @@ $betty-blue 						: #a8d9f4;
 
 
 // Assign colours to variable roles
-// Be descriptive without being specific. 
+// Be descriptive without being specific.
 // This allows for consistency project to project, and easy changing
 
 $body-color 						: #fff;
@@ -62,7 +72,7 @@ $action-respond						: $al-green;
 // ------------------------------------------------------------
 
 // Greek alphabet naming system. Obscure, yet hierarchical.
-// Allows us to avoid naming based on html object. 
+// Allows us to avoid naming based on html object.
 // Eg. A h1 can be smaller visually, than a h4.
 $alpha   	: 42px;
 $beta		: 32px;
@@ -85,7 +95,7 @@ $quote		: $beta;	// Quote size
 // :: Border widths
 // ------------------------------------------------------------
 
-$default-border-width 				: 1px; 
+$default-border-width 				: 1px;
 
 
 // ------------------------------------------------------------
@@ -97,7 +107,7 @@ $internal-spacing					: 40px; 	// Space internally with fixed measure
 
 
 
-// ------------------------------------------------------------	
-// Add functional stuff 
-// ------------------------------------------------------------	
+// ------------------------------------------------------------
+// Add functional stuff
+// ------------------------------------------------------------
 @import "functions/functions";
